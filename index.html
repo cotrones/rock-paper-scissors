@@ -3,8 +3,31 @@
 <head>
 	<meta charset="utf-8">
 	<title>Rock, Paper, Scissors!</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
+
+	<div class="main">
+
+		<h1>Rock, Paper, Scissors!</h1>
+
+		<div class="scoreRow">
+			<div id="userScore"></div>
+			<div id="compScore"></div>
+		</div>
+
+		<div class="detailRow">
+			
+		</div>
+
+		<div class="choiceRow">
+			<div class="choice"><img src="img/rock.png" class="responsive"></div>
+			<div class="choice"><img src="img/paper.png" class="responsive"></div>
+			<div class="choice"><img src="img/scissors.png" class="responsive"></div>
+		</div>
+		
+	</div>
 
 
 	<script type="text/javascript">
@@ -12,9 +35,9 @@
 		let choices = ["Rock", "Paper", "Scissors"];
 
 		let compPlay = function() {
-			let compChoice = choices[Math.floor(Math.random() * choices.length)];
-			console.log(compChoice);
-			return compChoice;
+			let result = choices[Math.floor(Math.random() * choices.length)];
+			console.log(result);
+			return result;
 		}
 
 		compPlay();

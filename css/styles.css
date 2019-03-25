@@ -1,0 +1,44 @@
+
+body {
+	font-family: Arial, sans serif;
+}
+
+div.main {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+h1 {
+	text-align: center;
+	font-size: 40px;
+	margin: 40px 0;
+}
+
+div.choiceRow {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.choice {
+	display: flex;
+	height: 192px;
+	width: 192px;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	border: 4px solid #222;
+	border-radius: 50%;
+}
+
+div.choice:hover {
+	background-color: green;
+}
+
+img.responsive {
+	width: 50%;
+	height: auto;
+}

@@ -9,6 +9,16 @@
 
 	<script type="text/javascript">
 		
+		let choices = ["Rock", "Paper", "Scissors"];
+
+		let compPlay = function() {
+			let compChoice = choices[Math.floor(Math.random() * choices.length)];
+			console.log(compChoice)
+			return compChoice;
+		}
+
+		compPlay();
+
 	</script>
 
 </body>

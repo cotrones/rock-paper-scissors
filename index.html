@@ -32,15 +32,45 @@
 
 	<script type="text/javascript">
 		
-		let choices = ["Rock", "Paper", "Scissors"];
+		const choices = ["rock", "paper", "scissors"];
+
+		let userPlay = function() {
+			console.log("in user play");
+			let userChoice = prompt("Rock, paper, or scissors?").toLowerCase();
+			if (userChoice == "rock" || "paper" || "scissors") {
+				return userChoice;
+			} else {
+				userPlay();
+			}
+		}
 
 		let compPlay = function() {
 			let result = choices[Math.floor(Math.random() * choices.length)];
-			console.log(result);
 			return result;
 		}
 
-		compPlay();
+		let playRound = function(userSelection, compSelection) {
+			console.log("You: " + userSelection);
+			console.log("CPU: " + compSelection);
+
+			if ((compSelection == 'rock') && (userSelection == 'scissors')) {
+				return "You Lose! Rock beats scissors.";
+			} else if ((compSelection == 'paper') && (userSelection == 'rock')) {
+				return "You Lose! Paper beats rock.";
+			} else if ((compSelection == 'scissors') && (userSelection == 'paper')) {
+				return "You Lose! Scissors beat paper.";
+			} else if ((compSelection == 'rock') && (userSelection == 'paper')) {
+				return "You Win! Paper beats rock.";
+			} else if ((compSelection == 'paper') && (userSelection == 'scissors')) {
+				return "You Win! Scissors beat paper.";
+			} else if ((compSelection == 'scissors') && (userSelection == 'rock')) {
+				return "You Win! Rock beats scissors.";
+			} else {
+				return playRound(userPlay(), compPlay());
+			}
+		}
+
+		console.log(playRound(userPlay(), compPlay()));
 
 	</script>
 

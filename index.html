@@ -22,9 +22,9 @@
 		</div>
 
 		<div class="choiceRow">
-			<div class="choice"><img src="img/rock.png" class="responsive"></div>
-			<div class="choice"><img src="img/paper.png" class="responsive"></div>
-			<div class="choice"><img src="img/scissors.png" class="responsive"></div>
+			<div class="choice" id="rock"><img src="img/rock.png" class="responsive"></div>
+			<div class="choice" id="paper"><img src="img/paper.png" class="responsive"></div>
+			<div class="choice" id="scissors"><img src="img/scissors.png" class="responsive"></div>
 		</div>
 		
 	</div>
@@ -33,15 +33,18 @@
 	<script type="text/javascript">
 		
 		const choices = ["rock", "paper", "scissors"];
+		const chooseRock = document.querySelector("#rock");
+		const choosePaper = document.querySelector("#paper");
+		const chooseScissors = document.querySelector("#scissors");
 
-		let userPlay = function() {
-			let userChoice = prompt("Rock, paper, or scissors?").toLowerCase();
-			if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
-				return userChoice;
-			} else {
-				return userPlay();
-			}
-		}
+		// let userPlay = function() {
+		// 	let userChoice = prompt("Rock, paper, or scissors?").toLowerCase();
+		// 	if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
+		// 		return userChoice;
+		// 	} else {
+		// 		return userPlay();
+		// 	}
+		// }
 
 		let compPlay = function() {
 			let result = choices[Math.floor(Math.random() * choices.length)];
@@ -53,7 +56,7 @@
 			console.log("CPU: " + compSelection);
 
 			if (userSelection === compSelection) {
-				return playRound(userPlay(), compPlay());
+				return "It's a tie, select again!";
 			} else if (userSelection == 'rock') {
 				if (compSelection == 'scissors') {
 					return "You Win! Rock beats scissors.";
@@ -75,7 +78,19 @@
 			}
 		}
 
-		console.log(playRound(userPlay(), compPlay()));
+		rock.addEventListener("click", function() {
+			playRound('rock', compPlay());
+		});
+
+		paper.addEventListener("click", function() {
+			playRound('paper', compPlay());
+		});
+
+		scissors.addEventListener("click", function() {
+			playRound('scissors', compPlay());
+		});
+
+		// console.log(playRound(userPlay(), compPlay()));
 
 	</script>
 

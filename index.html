@@ -36,6 +36,8 @@
 		const chooseRock = document.querySelector("#rock");
 		const choosePaper = document.querySelector("#paper");
 		const chooseScissors = document.querySelector("#scissors");
+		let userScore = 0;
+		let compScore = 0;
 
 		// let userPlay = function() {
 		// 	let userChoice = prompt("Rock, paper, or scissors?").toLowerCase();
@@ -51,6 +53,10 @@
 			return result;
 		}
 
+		let game = function() {
+
+		}
+
 		let playRound = function(userSelection, compSelection) {
 			console.log("You: " + userSelection);
 			console.log("CPU: " + compSelection);
@@ -59,35 +65,41 @@
 				return "It's a tie, select again!";
 			} else if (userSelection == 'rock') {
 				if (compSelection == 'scissors') {
+					userScore++;
 					return "You Win! Rock beats scissors.";
 				} else {
+					compScore++;
 					return "You Lose! Paper beats rock.";
 				}
 			} else if (userSelection == 'paper') {
 				if (compSelection == 'rock') {
+					userScore++;
 					return "You Win! Paper beats rock";
 				} else {
+					compScore++;
 					return "You Lose! Scissors beat paper.";
 				}
 			} else {
 				if (compSelection == "paper") {
+					userScore++;
 					return "You Win! Scissors beat paper.";
 				} else {
+					compScore++;
 					return "You Lose! Rock beats scissors.";
 				}
 			}
 		}
 
 		rock.addEventListener("click", function() {
-			playRound('rock', compPlay());
+			console.log(playRound('rock', compPlay()));
 		});
 
 		paper.addEventListener("click", function() {
-			playRound('paper', compPlay());
+			console.log(playRound('paper', compPlay()));
 		});
 
 		scissors.addEventListener("click", function() {
-			playRound('scissors', compPlay());
+			console.log(playRound('scissors', compPlay()));
 		});
 
 		// console.log(playRound(userPlay(), compPlay()));

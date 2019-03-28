@@ -35,12 +35,11 @@
 		const choices = ["rock", "paper", "scissors"];
 
 		let userPlay = function() {
-			console.log("in user play");
 			let userChoice = prompt("Rock, paper, or scissors?").toLowerCase();
-			if (userChoice == "rock" || "paper" || "scissors") {
+			if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
 				return userChoice;
 			} else {
-				userPlay();
+				return userPlay();
 			}
 		}
 
@@ -53,49 +52,27 @@
 			console.log("You: " + userSelection);
 			console.log("CPU: " + compSelection);
 
-			if (userSelection == compSelection) {
+			if (userSelection === compSelection) {
 				return playRound(userPlay(), compPlay());
-			}
-
-			if (userSelection == 'rock') {
+			} else if (userSelection == 'rock') {
 				if (compSelection == 'scissors') {
 					return "You Win! Rock beats scissors.";
 				} else {
 					return "You Lose! Paper beats rock.";
 				}
-			}
-
-			if (userSelection == 'paper') {
+			} else if (userSelection == 'paper') {
 				if (compSelection == 'rock') {
 					return "You Win! Paper beats rock";
 				} else {
 					return "You Lose! Scissors beat paper.";
 				}
-			}
-
-			if (userSelection == "scissors") {
+			} else {
 				if (compSelection == "paper") {
 					return "You Win! Scissors beat paper.";
 				} else {
-					return "You Lose! Rock beats scissors."
+					return "You Lose! Rock beats scissors.";
 				}
 			}
-
-			// if ((compSelection == 'rock') && (userSelection == 'scissors')) {
-			// 	return "You Lose! Rock beats scissors.";
-			// } else if ((compSelection == 'paper') && (userSelection == 'rock')) {
-			// 	return "You Lose! Paper beats rock.";
-			// } else if ((compSelection == 'scissors') && (userSelection == 'paper')) {
-			// 	return "You Lose! Scissors beat paper.";
-			// } else if ((compSelection == 'rock') && (userSelection == 'paper')) {
-			// 	return "You Win! Paper beats rock.";
-			// } else if ((compSelection == 'paper') && (userSelection == 'scissors')) {
-			// 	return "You Win! Scissors beat paper.";
-			// } else if ((compSelection == 'scissors') && (userSelection == 'rock')) {
-			// 	return "You Win! Rock beats scissors.";
-			// } else {
-			// 	return playRound(userPlay(), compPlay());
-			// }
 		}
 
 		console.log(playRound(userPlay(), compPlay()));

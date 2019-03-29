@@ -47,15 +47,18 @@
 
 	<script type="text/javascript">
 		
+		//set score variables and array of choices
 		const choices = ["rock", "paper", "scissors"];
 		let userScore = 0;
 		let compScore = 0;
 
+		//function for computer to randomly select from choices array
 		let compPlay = function() {
 			let result = choices[Math.floor(Math.random() * choices.length)];
 			return result;
 		}
 
+		//function to play one round of the game based on user input and compPlay function
 		let playRound = function(userSelection, compSelection) {
 			console.log("You: " + userSelection);
 			console.log("CPU: " + compSelection);
@@ -98,6 +101,7 @@
 			}
 		}
 
+		//function for checking if user or comp has won up to 5
 		let game = function(userChoice) {
 			let player = userChoice;
 			let comp = compPlay();
@@ -114,6 +118,7 @@
 			}
 		}
 
+		//on click event listeners to call game function with user choice
 		rock.addEventListener("click", function() {
 			game('rock');
 		});
@@ -126,6 +131,7 @@
 			game('scissors');
 		});
 
+		//on click event listener to reset the game after user or comp wins
 		reset.addEventListener("click", function () {
 			userScore = 0;
 			compScore = 0;

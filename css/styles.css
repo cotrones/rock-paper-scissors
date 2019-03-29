@@ -19,6 +19,63 @@ h1 {
 	font-weight: bold;
 }
 
+div.scoreRow {
+	display: flex;
+	width: 100%;
+	height: 200px;
+}
+
+div.scoreCol {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+}
+
+h2.scoreHead {
+	font-size: 32px;
+	margin-bottom: 5px;
+}
+
+div.score {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150px;
+	width: 130px;
+	border: 4px solid #222;
+	border-radius: 15px;
+}
+
+div.score span {
+	font-size: 100px;
+}
+
+div.detailRow {
+	display: flex;
+	flex-direction: column;
+	margin: 30px auto;
+}
+
+span#detail {
+	font-size: 24px;
+}
+
+div#reset {
+	display: none;
+	border: 2px solid #222;
+	border-radius: 5px;
+	font-size: 20px;
+	padding: 8px;
+	margin: 15px auto;
+}
+
+div#reset:hover {
+	cursor: pointer;
+	font-weight: bold;
+}
+
 div.choiceRow {
 	display: flex;
 	justify-content: center;

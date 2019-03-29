@@ -19,19 +19,21 @@
 				<div class="score">
 					<span id="userScore">0</span>
 				</div>
+				<span class="selection" id="userSelected"></span>
 			</div>
 			<div class="scoreCol">
 				<h2 class="scoreHead">Comp</h2>
 				<div class="score">
 					<span id="compScore">0</span>
 				</div>
+				<span class="selection" id="compSelected"></span>
 			</div>
 		</div>
 
 		<div class="detailRow">
 			<span id="detail">Select rock, paper or scissors.</span>
 			<div id="reset">
-				<span>Play Again!</span>
+				<span>Play Again?</span>
 			</div>
 		</div>
 
@@ -42,7 +44,6 @@
 		</div>
 		
 	</div>
-
 
 	<script type="text/javascript">
 		
@@ -60,45 +61,53 @@
 			console.log("CPU: " + compSelection);
 
 			if (userSelection === compSelection) {
-				return "It's a tie, select again!";
+				document.querySelector('#detail').innerHTML = "It's a tie, select again!";
 			} else if (userSelection == 'rock') {
 				if (compSelection == 'scissors') {
 					userScore++;
-					return "You Win! Rock beats scissors.";
+					document.querySelector('#detail').innerHTML = "You Win! Rock beats scissors.";
+					document.querySelector('#userScore').innerHTML = userScore;
 				} else {
 					compScore++;
-					return "You Lose! Paper beats rock.";
+					document.querySelector('#detail').innerHTML = "You Lose! Paper beats rock.";
+					document.querySelector('#compScore').innerHTML = compScore;
 				}
 			} else if (userSelection == 'paper') {
 				if (compSelection == 'rock') {
 					userScore++;
-					return "You Win! Paper beats rock";
+					document.querySelector('#detail').innerHTML = "You Win! Paper beats rock";
+					document.querySelector('#userScore').innerHTML = userScore;
 				} else {
 					compScore++;
-					return "You Lose! Scissors beat paper.";
+					document.querySelector('#detail').innerHTML = "You Lose! Scissors beat paper.";
+					document.querySelector('#compScore').innerHTML = compScore;
 				}
 			} else {
 				if (compSelection == "paper") {
 					userScore++;
-					return "You Win! Scissors beat paper.";
+					document.querySelector('#detail').innerHTML = "You Win! Scissors beat paper.";
+					document.querySelector('#userScore').innerHTML = userScore;
 				} else {
 					compScore++;
-					return "You Lose! Rock beats scissors.";
+					document.querySelector('#detail').innerHTML = "You Lose! Rock beats scissors.";
+					document.querySelector('#compScore').innerHTML = compScore;
 				}
 			}
 		}
 
 		let game = function(userChoice) {
-			console.log("You: " + userScore);
-			console.log("CPU: " + compScore);
+			let player = userChoice;
+			let comp = compPlay();
+			playRound(player, comp);
+
 			if (userScore == 5) {
 				document.querySelector('#reset').style.display = "block";
+				document.querySelector('#detail').innerHTML = "You Win!";
+				document.querySelector('.choiceRow').style.display = "none";
 			} else if (compScore == 5) {
 				document.querySelector('#reset').style.display = "block";
-			} else {
-				let player = userChoice;
-				let comp = compPlay();
-				playRound(player, comp);
+				document.querySelector('#detail').innerHTML = "You Lose...";
+				document.querySelector('.choiceRow').style.display = "none";
 			}
 		}
 
@@ -117,6 +126,10 @@
 		reset.addEventListener("click", function () {
 			userScore = 0;
 			compScore = 0;
+			document.querySelector('#userScore').innerHTML = userScore;
+			document.querySelector('#compScore').innerHTML = compScore;
+			document.querySelector('#detail').innerHTML = "Select rock, paper or scissors.";
+			document.querySelector('.choiceRow').style.display = "flex";
 			document.querySelector('#reset').style.display = "none";
 		});
 

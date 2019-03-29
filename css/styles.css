@@ -60,6 +60,7 @@ div.detailRow {
 
 span#detail {
 	font-size: 24px;
+	margin: 0 auto;
 }
 
 div#reset {

@@ -19,14 +19,14 @@
 				<div class="score">
 					<span id="userScore">0</span>
 				</div>
-				<span class="selection" id="userSelected"></span>
+				<span id="userSelected">You Selected: </span>
 			</div>
 			<div class="scoreCol">
 				<h2 class="scoreHead">Comp</h2>
 				<div class="score">
 					<span id="compScore">0</span>
 				</div>
-				<span class="selection" id="compSelected"></span>
+				<span id="compSelected">Comp Selected: </span>
 			</div>
 		</div>
 
@@ -59,6 +59,9 @@
 		let playRound = function(userSelection, compSelection) {
 			console.log("You: " + userSelection);
 			console.log("CPU: " + compSelection);
+
+			document.querySelector('#userSelected').innerHTML = "You Selected: " + userSelection.toUpperCase();
+			document.querySelector('#compSelected').innerHTML = "Comp Selected: " + compSelection.toUpperCase();
 
 			if (userSelection === compSelection) {
 				document.querySelector('#detail').innerHTML = "It's a tie, select again!";
